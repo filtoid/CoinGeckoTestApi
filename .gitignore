@@ -19,3 +19,4 @@ notes
 # Added by cargo
 
 /target
+.env
