@@ -9,10 +9,8 @@ pub async fn start_coin_updater_thread(pool: PgPool) {
     let delay: u64 = delay_string.parse().unwrap();
     debug!("Delay between requests for CG Api {}", delay);
     loop {
-
         api_loader::refresh_coin_data(pool.clone()).await;
-        
-        // TODO: Read the pause value from env
+
         thread::sleep(Duration::from_millis(delay));
     }
 }
